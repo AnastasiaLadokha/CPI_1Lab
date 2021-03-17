@@ -30,4 +30,25 @@ public class SaveFile {
                     "Помилка", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    public static void save_message(String message){
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            JFileChooser jFileChooser = new JFileChooser();
+            jFileChooser.setDialogTitle("Виберіть файл для збереження");
+            jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            jFileChooser.setApproveButtonText("Зберегти");
+            jFileChooser.showOpenDialog(null);
+            File file = jFileChooser.getSelectedFile();
+            String path = file.getAbsolutePath();
+            if(path != null){
+                BufferedWriter writer = new BufferedWriter(new FileWriter(path));
+                writer.write(message);
+                writer.flush();
+            }
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Щось пішло не так!",
+                    "Помилка", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }

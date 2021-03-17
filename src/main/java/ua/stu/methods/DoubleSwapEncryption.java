@@ -1,6 +1,6 @@
 package ua.stu.methods;
 
-public class Encryption {
+public class DoubleSwapEncryption {
 
     public static char[][] result(String word, String keyWordColumn, String keyWordRow) {
         int count = 5;
@@ -32,38 +32,38 @@ public class Encryption {
 
         //меняем порядок букв в слове-шифре по столбцам в массиве
         for (int i = 0; i < keyColumn.length; i++) {
-            int min = (int) keyColumn[i];
+            int min =  keyColumn[i];
             int imin = i;
             //ищем букву, коротая встретиться в алвавите раньше всего
             for (int j = i + 1; j < keyColumn.length; j++) {
                 if ((int) keyColumn[j] < min) {
-                    min = (int) keyColumn[j];
+                    min = keyColumn[j];
                     imin = j;
                 }
             }
             //если индекс этой буквы не равен букве, которую мы нашли , то меняем их местами
             if (i != imin) {
-                int temp = (int) keyColumn[i];
-                keyColumn[i] = (char) keyColumn[imin];
+                int temp = keyColumn[i];
+                keyColumn[i] =  keyColumn[imin];
                 keyColumn[imin] = (char) temp;
             }
         }
 
         //меняем порядок букв в слове-шифре по рядкам в массиве
         for (int i = 0; i < keyRow.length; i++) {
-            int min = (int) keyRow[i];
+            int min = keyRow[i];
             int imin = i;
             //ищем букву, коротая встретиться в алвавите раньше всего
             for (int j = i + 1; j < keyRow.length; j++) {
                 if ((int) keyRow[j] < min) {
-                    min = (int) keyRow[j];
+                    min = keyRow[j];
                     imin = j;
                 }
             }
             //если индекс этой буквы не равен букве, которую мы нашли , то меняем их местами
             if (i != imin) {
-                int temp = (int) keyRow[i];
-                keyRow[i] = (char) keyRow[imin];
+                int temp =  keyRow[i];
+                keyRow[i] = keyRow[imin];
                 keyRow[imin] = (char) temp;
             }
         }

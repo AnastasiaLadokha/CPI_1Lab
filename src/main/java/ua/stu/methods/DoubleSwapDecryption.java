@@ -1,6 +1,6 @@
 package ua.stu.methods;
 
-public class Decryption {
+public class DoubleSwapDecryption {
     public static void swapColumns(char m[][], int a, int b)
     {
         for (int c = 0; c < m.length; c ++) {
@@ -43,10 +43,11 @@ public class Decryption {
             }
 
             char[] arr = keyCol.toCharArray();
-
+            int count = 5;
             for (int i = 0; i < arr.length; i ++) {
                 int index = findSymbol(arrSorted, arr[i], i);
-                if (index != i && index != -1) {
+                if (index != i && index != -1 ) {
+
                     swapColumns(data, index, i);
 
                     char tmp = arrSorted[i];
@@ -72,10 +73,12 @@ public class Decryption {
             }
 
             char[] arr = keyRow.toCharArray();
+            int count = 5;
 
             for (int i = 0; i < arr.length; i ++) {
                 int index = findSymbol(arrSorted, arr[i], i);
-                if (index != i && index != -1) {
+                if (index != i && index != -1 ) {
+
                     swapRows(data, index, i);
 
                     char tmp = arrSorted[i];
